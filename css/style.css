@@ -90,6 +90,21 @@ h2.active:after{
     height: 750px;
     pointer-events: none;
     margin: -150px;
+    transform-origin: right;
+    animation: colorChange 5s linear infinite;
+}
+@keyframes colorChange {
+    0%{
+        filter: hue-rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.glowing:nth-child(even){
+    transform-origin: left;
 }
 .glowing span{
     position: absolute;
@@ -117,10 +132,21 @@ h2.active:after{
     animation: animate-reverse 13s alternate infinite;
 }
 .glowing span:nth-child(3n + 3){
-    animation: animate-reverse 8s alternate infinite;
+    animation: animate 8s alternate infinite;
 }
 @keyframes animate {
     0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes animate-reverse {
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
         transform: rotate(0deg);
     }
 }
